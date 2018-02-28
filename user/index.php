@@ -41,6 +41,7 @@ if (!isset($_SESSION['mysesi']) && !isset($_SESSION['mytype'])=='User')
       <li class="dropdown"> <a class = "dropdown-toggle" data-toggle = "dropdown" href="#"> Settings <span class = "caret"> </span> </a> 
       	 <ul class="dropdown-menu">
       	 	<li> <a href="changePassword.php"> Change Password </a> </li>
+      	 	<li> <a href="faq.php"> FAQ </a> </li>
       	 </ul>
       </li>
       

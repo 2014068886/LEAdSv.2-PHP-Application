@@ -27,11 +27,13 @@ $username = $_SESSION['mysesi'];
     		</div>
     		<ul class="nav navbar-nav">
       			<li> <a href="admin.php">Home</a></li>
-      			<li> <a href="#"> Logs </a> </li>
+      			<li> <a href="logs.php"> Logs </a> </li>
       			<li class="active"><a href="profile.php">Profile</a></li>
+      			<li> <a href="notification.php">Notification</a></li>
       			<li class="dropdown"> <a class = "dropdown-toggle" data-toggle = "dropdown" href="#"> Settings <span class = "caret"> </span> </a> 
       	 			<ul class="dropdown-menu">
       	 				<li> <a href="adminPassword.php"> Change Password </a> </li>
+      	 				<li> <a href="adminFAQ.php">FAQ</a></li>
       	       	    </ul>
       			</li>
     		</ul>
@@ -97,9 +99,7 @@ $username = $_SESSION['mysesi'];
                     </div>
                     <div class='modal-body'>
                         <div class='panel-body'>
-                            <form method = 'POST' action = 'editProfile.php'>
-                                <label> Username </label>
-    							<input type='text' name='username'><br>
+                            <form method = 'POST' action = 'adminEditProfile.php'>
     							<label> Email Address </label> 
     							<input type='email' name='email'><br>
     							<label> Mobile Number </label>

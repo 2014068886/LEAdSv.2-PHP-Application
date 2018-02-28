@@ -1,13 +1,4 @@
 <?php
-/*
-session_start();
- 
-if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
-  header("location: index.php");
-  exit;
-} */
-?>
-<?php
 session_start();
 
 if (!isset($_SESSION['mysesi']) && !isset($_SESSION['mytype'])=='Admin')
@@ -23,13 +14,6 @@ if (!isset($_SESSION['mysesi']) && !isset($_SESSION['mytype'])=='Admin')
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Login Session</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
-	
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
   </head>
   <body>
 <nav class="navbar navbar-inverse">
@@ -39,11 +23,13 @@ if (!isset($_SESSION['mysesi']) && !isset($_SESSION['mytype'])=='Admin')
     </div>
     <ul class="nav navbar-nav">
       <li class="active"><a href="#">Home</a></li>
-      <li> <a href="#"> Logs </a> </li>
-      <li><a href="adminProfile.php">Profile</a></li>
+      <li> <a href="logs.php"> Logs </a> </li>
+      <li> <a href="adminProfile.php">Profile</a></li>
+      <li> <a href="notification.php">Notification</a></li>
       <li class="dropdown"> <a class = "dropdown-toggle" data-toggle = "dropdown" href="#"> Settings <span class = "caret"> </span> </a> 
       	 <ul class="dropdown-menu">
       	 	<li> <a href="adminPassword.php"> Change Password </a> </li>
+      	 	<li> <a href="adminFAQ.php">FAQ</a></li>
       	 </ul>
       </li>
       
@@ -88,31 +74,7 @@ if (!isset($_SESSION['mysesi']) && !isset($_SESSION['mytype'])=='Admin')
      
   </div>
 
-      <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   </body>
 </html>  
-
-<?php 
-/*
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Welcome</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
-    <style type="text/css">
-        body{ font: 14px sans-serif; text-align: center; }
-    </style>
-</head>
-<body>
-    <div class="page-header">
-        <h1>Welcome Admin, <b><?php echo $_SESSION['username']; ?></b>. .</h1>
-    </div>
-    <p><a href="logout.php" class="btn btn-danger">Sign Out of Your Account</a></p>
-</body>
-</html>
-*/
-?>

@@ -66,7 +66,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     if (empty($_POST["email"])) {
     	$email_err = "Email is required";
     } else {
-    	$email = trim($_POST["email"]);
+    	$email = trim($_POST['email']);
     	if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     		$email_err = "Invalid email format";
     	}
@@ -74,9 +74,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     
     //Validate Mobile Number
     if(empty($_POST["mobileNum"])){
-    	
+    	$mobile_num_err = "Mobile Num is required";
     } else {
-    	$mobileNum = trim($_POST["mobileNum"]);
+    	$mobileNum = trim($_POST['mobileNum']);
     	if(!(preg_match('/^[0-9]{11}+$/', $mobileNum))){
     		$mobile_num_err = "Must be 11 digits";
     	}
@@ -146,7 +146,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             </div>
             <div class="form-group <?php echo (!empty($mobile_num_err)) ? 'has-error' : ''; ?>">
             	<label>Mobile Number: <sup style="color: red">*</sup> </label>
-            	<input type="number" name="mobileNum" class="form-control" value="<?php echo $mobileNum ?>">
+            	<input type="text" name="mobileNum" class="form-control" value="<?php echo $mobileNum ?>">
            		<span class="help-block"><?php echo $mobile_num_err; ?></span>
             </div>
             <div class="form-group <?php echo (!empty($email_err)) ? 'has-error' : ''; ?>">

@@ -1,4 +1,4 @@
- <?php
+<?php
     session_start();
     
     if (!isset($_SESSION['mysesi']) && !isset($_SESSION['mytype'])=='User')
@@ -8,7 +8,7 @@
     
     $username = $_SESSION['mysesi'];
  
-    	include 'config.php';
+    include 'config.php';
     if($_SERVER["REQUEST_METHOD"] == "POST"){
     	
     	$uname = trim($_POST['username']);
@@ -24,4 +24,4 @@
     	mysqli_close($link);
     	echo "<script>window.location.assign('profile.php')</script>";
     }
-	?>
+?>

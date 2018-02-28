@@ -33,7 +33,7 @@
 $password=md5($_POST['password']);
 $login=$_POST['login']; */
 if(isset($_POST['username']) && isset($_POST['password'])){
-  $mysqli = new mysqli("localhost", "root", "12345", "leads");
+  $mysqli = new mysqli("127.0.0.1", "root", "12345", "leads");
   if ($mysqli->connect_errno) {
     echo "Failed to connect to MySQL: " . $mysqli->connect_error;
   }

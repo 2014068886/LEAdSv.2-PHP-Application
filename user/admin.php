@@ -14,6 +14,8 @@ if (!isset($_SESSION['mysesi']) && !isset($_SESSION['mytype'])=='Admin')
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Login Session</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
+	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   </head>
   <body>
 <nav class="navbar navbar-inverse">
@@ -68,13 +70,7 @@ if (!isset($_SESSION['mysesi']) && !isset($_SESSION['mytype'])=='Admin')
 			</tr>
 		</table> <p>&nbsp;</p> <p>&nbsp;</p> 
 		<a href="http://admin:admin@192.168.2.10/">IP CAMERA</a> </div> </div >
-		<iframe id="f1" frameborder="0" src=""><iframe> <iframe id="f2" src=""><iframe>
-    </div>  
-    </div>
-     
-  </div>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<iframe id="f1" frameborder="0" src=""> </iframe> <iframe id="f2" src=""></iframe>
+    </div> 
   </body>
 </html>  

@@ -88,9 +88,8 @@ $username = $_SESSION['mysesi'];
              <button type='button' class='btn btn-primary dropdown-toggle' data-toggle='modal' data-target='#edit'> <span class='glyphicon glyphicon-edit'></span> Edit Profile </button>
         </div>
     </div>";
-    	
-    echo
-    "<div class='modal fade' id='edit' role='dialog'>
+?>
+    <div class='modal fade' id='edit' role='dialog'>
             <div class='modal-dialog modal-sm'>
                 <div class='modal-content'>
                     <div class='modal-header'>
@@ -99,19 +98,20 @@ $username = $_SESSION['mysesi'];
                     </div>
                     <div class='modal-body'>
                         <div class='panel-body'>
-                            <form method = 'POST' action = 'adminEditProfile.php'>
+                            <form method = "POST" action = "adminEditProfile.php">
+                            	<input type="hidden" name="username" value="<?php $username ?>" />
     							<label> Email Address </label> 
-    							<input type='email' name='email'><br>
+    							<input type="email" name="email" id="email" class="form-control"><br>
     							<label> Mobile Number </label>
-    							<input type='number' name='mobileNum'><br><br>
+    							<input type="text" name="mobileNum" id="mobileNum" class="form-control"><br><br>
     			
-    							<center><button type='submit' class='btn btn-primary'> Submit </button> <button type='reset' class='btn btn-primary'> Reset </button> </center>	
+    							<center><input type="submit" class="btn btn-primary"> <input type="reset" class="btn btn-primary"> </center>	
                             </form>		
                         </div>
                     </div>
                 </div>
             </div>
-        </div>";
-    ?>
+        </div>
+   
     </body>
 </html>

@@ -110,6 +110,7 @@ $(document).ready(function(){
       <li class="dropdown"> <a class = "dropdown-toggle" data-toggle = "dropdown" href="#"> Settings <span class = "caret"> </span> </a> 
       	 <ul class="dropdown-menu">
       	 	<li> <a href="adminPassword.php"> Change Password </a> </li>
+      	 	<li> <a href="adminFAQ.php"> FAQ </a> </li>
       	 </ul>
       </li>
       

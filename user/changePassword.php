@@ -13,13 +13,6 @@ $oldPassword = $password = $confirm_password = "";
 $old_password_err = $password_err = $confirm_password_err = "";
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
-	
-	//Validate old password
-	if(empty(trim($_POST['oldPassword']))){
-		$old_password_err = "Please Enter Old Password";
-	} else {
-		$oldPassword = trim($_POST['oldPassword']);
-	}
 
 	// Validate password
 	if(empty(trim($_POST['password']))){
@@ -27,7 +20,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	} elseif(strlen(trim($_POST['password'])) < 6){
 		$password_err = "Password must have atleast 6 characters.";
 	} else{
-		$password = md5(trim($_POST['password']));
+		$password = trim($_POST['password']);
 	}
 	
 	// Validate confirm password
@@ -101,12 +94,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         <div class="container-fluid">
             <div class="row">
              <div class="col-md-12">
-        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" style="width:300px;">
-     		<div class="form-group <?php echo (!empty($old_password_err)) ? 'has-error' : ''; ?>">
-     			<label>Old Password:<sup style="color: red">*</sup></label>
-                <input type="password" name="oldPassword" class="form-control" value="<?php echo $oldPassword; ?>">
-                <span class="help-block"><?php echo $old_password_err; ?></span>
-     		</div>
+        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST" style="width:300px;">
      		<div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
                 <label>New Password:<sup style="color: red">*</sup></label>
                 <input type="password" name="password" class="form-control" value="<?php echo $password; ?>">

@@ -6,20 +6,30 @@ if (!isset($_SESSION['mysesi']) && !isset($_SESSION['mytype'])=='Admin')
 	echo "<script>window.location.assign('login.php')</script>";
 }
 
-$username = $_SESSION['mysesi'];
-
 include 'config.php';
 if($_SERVER["REQUEST_METHOD"] == "POST"){
 	 
-	$email = mysqli_real_escape_string($link, $_POST['email']);
-	$mobileNum = mysqli_real_escape_string($link, $_POST['mobileNum']);
+	if(isset($_POST['username'])){
+		$username = $_POST['username'];
+	}
 	 
-	$query = "UPDATE users set email='".$email."', mobileNum='".$mobileNum."' where username = '".$username."'";
-	 
-	$result = mysqli_query($link, $query);
-	 
+	if(isset($_POST['email'])){
+		$email = $_POST['email'];
+	}
+	
+	if(isset($_POST['mobileNum'])){
+		$mobileNum = $_POST['mobileNum'];
+	}
+	
+	$query = $link->query("UPDATE users set email='".$email."', mobileNum='".$mobileNum."' where username = '".$username."'");	 
+	
+	if ($link->query($query) === TRUE) {
+		echo "Record updated successfully";
+		echo "<script>window.location.assign('adminProfile.php')</script>";
+	} else {
+		echo "Error updating record: " . $link->error;
+	}
 	mysqli_close($link);
-	echo "<script>window.location.assign('adminProfile.php')</script>";
 }
 
 ?>

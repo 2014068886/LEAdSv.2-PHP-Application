@@ -12,7 +12,7 @@ if (!isset($_SESSION['mysesi']) && !isset($_SESSION['mytype'])=='Admin')
 <meta http-equiv="Content-Type" content="text/html; charset=Cp1252">
 <title>LOGS</title>
 </head>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
    <body>
    <nav class="navbar navbar-inverse">
   <div class="container-fluid">
@@ -27,6 +27,7 @@ if (!isset($_SESSION['mysesi']) && !isset($_SESSION['mytype'])=='Admin')
       <li class="dropdown"> <a class = "dropdown-toggle" data-toggle = "dropdown" href="#"> Settings <span class = "caret"> </span> </a> 
       	 <ul class="dropdown-menu">
       	 	<li> <a href="adminPassword.php"> Change Password </a> </li>
+      	 	<li> <a href="adminFAQ.php"> FAQ </a> </li>
       	 </ul>
       </li>
     </ul>
@@ -41,15 +42,7 @@ if (!isset($_SESSION['mysesi']) && !isset($_SESSION['mytype'])=='Admin')
 	 ?>
 	 
     <div class="container">
-    	<form class="form-horizontal" action="generateCSV.php" method='post' enctype="multipart/form-data">
-                  <div class="form-group">
-                            <div class="col-md-4 col-md-offset-4">
-                                <input type="submit" name="exportDB" class="btn btn-success" value="Export Data to CSV"/>
-                            </div>
-                   </div>                    
-        </form>  
-    	<br /><br />
-    	<table class=table table-bordered>
+    	 <table id="table_id" class="display">
     		<thead>
     			<tr>
     				<th> Reference </th>
@@ -78,8 +71,57 @@ if (!isset($_SESSION['mysesi']) && !isset($_SESSION['mytype'])=='Admin')
     		<?php
 	  			}
 	  		?>
-    		</tbody>	
-    	</table>
+    	</tbody>	
+    </table>
+    
+    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Generate Daily Report</button>
+	<button type="button" class="btn btn-info" data-toggle="modal" data-target="#weekly">Generate Weekly Report</button>
+    <form class="form-horizontal" action="generateCSV.php" method='post' enctype="multipart/form-data">
+           <input type="submit" name="exportDB" class="btn btn-success" value="Export Data to CSV"/>
+  
+    </form> 	
+    
+  	<div class="modal fade" id="myModal" role="dialog">
+    	<div class="modal-dialog">
+    
+      		<!-- Modal content-->
+      		<div class="modal-content">
+        		<div class="modal-header">
+          			<button type="button" class="close" data-dismiss="modal">&times;</button>
+          			<h4 class="modal-title">Daily Report</h4>
+        		</div>
+        		<div class="modal-body">
+        		<form action="generateDailyPDF.php" method="post">
+          			<label> Day </label>
+          			<input type="date" name="day" id="day" placeholder="Enter day" class="form-control" required/> <br>
+          			
+          			<input type="submit" value="SUBMIT" class="btn btn-submit"/> <input type="reset" value="RESET" class="btn btn-submit"/> 
+        		</form>
+        		</div>
+      		</div>
+    	</div>
+  	</div>
+    
+    <div class="modal fade" id="weekly" role="dialog">
+    	<div class="modal-dialog">
+    
+      		<!-- Modal content-->
+      		<div class="modal-content">
+        		<div class="modal-header">
+          			<button type="button" class="close" data-dismiss="modal">&times;</button>
+          			<h4 class="modal-title">Weekly Report</h4>
+        		</div>
+        		<div class="modal-body">
+        		<form action="generateWeeklyPDF.php" method="post">
+          		
+          			<input type="submit" value="SUBMIT" class="btn btn-submit"/> <input type="reset" value="RESET" class="btn btn-submit"/> 
+        		</form>
+        		</div>
+      		</div>
+    	</div>
+  	</div>
+    	
+ 
     	<form class="form-horizontal" method="post" action="generatePdf.php">
 			<button type="submit" id="pdf" name="generate_pdf" class="btn btn-primary"> Generate PDF</button>
 		</form>
@@ -87,4 +129,11 @@ if (!isset($_SESSION['mysesi']) && !isset($_SESSION['mytype'])=='Admin')
 	 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
 	 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   </body>
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.css">
+  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.js"></script>
+  <script>
+    $(document).ready( function () {
+	    $('#table_id').DataTable();
+	} );
+  </script>
 </html>

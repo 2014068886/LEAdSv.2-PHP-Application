@@ -15,8 +15,9 @@
     </div>
     <ul class="nav navbar-nav">
       <li><a href="admin.php">Home</a></li>
+      <li> <a href="logs.php"> Logs </a> </li>
       <li><a href="adminProfile.php">Profile</a></li>
-      <li><a href="notification.php">Notifications</a></li>
+      <li><a href="notification.php">Notification</a></li>
       <li class="dropdown"> <a class = "dropdown-toggle" data-toggle = "dropdown" href="#"> Settings <span class = "caret"> </span> </a> 
       	 <ul class="dropdown-menu">
       	 	<li> <a href="adminPassword.php"> Change Password </a> </li>

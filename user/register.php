@@ -90,7 +90,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         if($stmt = mysqli_prepare($link, $sql)){
             mysqli_stmt_bind_param($stmt, "sssssss", $param_username, $param_password, $param_firstName, $param_lastName, $param_mobile, $param_user_type, $param_email);
             $param_username = $username;
-            $param_password = md5($password); /*password_hash($password, PASSWORD_DEFAULT); */ // Creates a password hash
+            $param_password = $password; /*password_hash($password, PASSWORD_DEFAULT); */ // Creates a password hash
             $param_firstName = $firstName;
             $param_lastName = $lastName;
             $param_mobile = $mobileNum;
@@ -100,7 +100,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             if(mysqli_stmt_execute($stmt)){
                 header("location: login.php");
             } else{
-                echo "Something went wrong. Please try again later.";
+                echo "Please try again later.";
             }
         }
         mysqli_stmt_close($stmt);

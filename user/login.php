@@ -37,7 +37,7 @@ if(isset($_POST['username']) && isset($_POST['password'])){
   if ($mysqli->connect_errno) {
     echo "Failed to connect to MySQL: " . $mysqli->connect_error;
   }
-  $res = $mysqli->query("SELECT * FROM users where username='".$_POST['username']."' and password='".md5($_POST['password'])."'");
+  $res = $mysqli->query("SELECT * FROM users where username='".$_POST['username']."' and password='".$_POST['password']."'");
   $row = $res->fetch_assoc();
   $name = $row['firstName'];
   $user = $row['username'];

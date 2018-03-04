@@ -15,10 +15,6 @@ $username = $_SESSION['mysesi'];
 <title>Profile</title>
 </head>
     <body>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    
     <nav class="navbar navbar-inverse">
   		<div class="container-fluid">
     		<div class="navbar-header">
@@ -26,11 +22,13 @@ $username = $_SESSION['mysesi'];
     		</div>
     		<ul class="nav navbar-nav">
       			<li> <a href="admin.php">Home</a></li>
-      			<li> <a href="#"> Logs </a> </li>
+      			<li> <a href="logs.php"> Logs </a> </li>
       			<li> <a href="adminProfile.php">Profile</a></li>
+      			<li> <a href="notification.php">Notification</a></li>
       			<li class="dropdown"> <a class = "dropdown-toggle" data-toggle = "dropdown" href="#"> <b> Settings </b> <span class = "caret"> </span> </a> 
       	 			<ul class="dropdown-menu">
       	 				<li> <a href="adminPassword.php"> Change Password </a> </li>
+      	 				<li> <a href="adminFAQ.php"> FAQ </a> </li>
       	       	    </ul>
       			</li>
     		</ul>
@@ -39,5 +37,20 @@ $username = $_SESSION['mysesi'];
     		</ul>
   		</div>
 	</nav>
+	
+	<div class="container">
+	  <div class="">
+		<form method="POST" action="adminChangePassword.php" >
+	
+			<input type="text" name="username" id="username" placeholder="Enter a username" class="form-control" /> <br/>
+			<input type="password" name="oldPwd" id="oldPwd" placeholder="New Password" class="form-control"/> <br/>		
+			<input type="password" name="confPwd" id="confPwd" placeholder="Confirm Password" class="form-control"/> <br/> 
+			<input type="submit" value="Change Password" class="btn btn-success"/>		
+		</form>
+	  </div>
+	</div>
 </body>
+ 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </html>

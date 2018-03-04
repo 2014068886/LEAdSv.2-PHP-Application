@@ -69,7 +69,7 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
     	$sql = "SELECT * from users";
     	if($result = $link->query($sql)){
     		if($result->num_rows > 0){
-    			echo "<table class='table table-bordered table-striped'>";
+    			echo "<table id='table_id' class='display'>";
     			echo "<thead>";
     			echo "<tr>";
     			echo "<th>id</th>";
@@ -147,4 +147,11 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
 </div>
     
 </body>
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.css">
+  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.js"></script>
+  <script>
+    $(document).ready( function () {
+	    $('#table_id').DataTable();
+	} );
+  </script>
 </html>

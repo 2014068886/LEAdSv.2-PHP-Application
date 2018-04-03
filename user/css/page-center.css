@@ -1,0 +1,13 @@
+html,
+body {
+    height: 100%;
+}
+div.container {
+	display: table;
+	margin: auto;
+}
+
+div.form {
+    display: table-cell;
+    vertical-align: middle;
+}

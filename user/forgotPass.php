@@ -1,41 +1,10 @@
-<?php 
-	require_once 'config.php';
-	
-	if(isset($_POST) && !empty($_POST)){
-		$username = mysqli_real_escape_string($link, $_POST['username']);
-		$sql = "SELECT * from users where username='$username'";
-		$result = mysqli_query($link, $sql);
-		$count = mysqli_num_rows($result);
-		if($count == 1){
-			echo "Email Sent";
-		} else {
-			echo "Username does not exist";
-		}
-		
-	$row = mysqli_fetch_assoc($result);
-	$password = $row['password'];
-	$toEmail = $row['email'];
-	$subject = "Your Recovered Password";
-	
-	$message = "Please use this password to login " . $password;
-	$headers =  'MIME-Version: 1.0' . "\r\n";
-	$headers .= 'From: jm_bayocot@yahoo.com' . "\r\n";
-	$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-	
-	if(mail($toEmail, $subject, $message, $headers)){
-		echo "Your Password has been sent to your email id";
-	} else {
-		echo "Failed to Recover your password, try again";
-	}
-
-	}
-?>
 <!DOCTYPE HTML">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=Cp1252">
-<title>Insert title here</title>
+<title>Forgot Password</title>
 </head>
+	<link href="demo-style.css" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -47,12 +16,37 @@
    		}
    	</style>
     <body>
-    	<form class="form-signin" method="POST">
-    		<h2> Forgot Password </h2>
-    		<div class="input-group">
-    			<input type="text" name="username" class="form-control" placeholder="Username" required> 
-    		</div>
-    		<button class="btn btn-lg btn-primary btn-block" type="submit"> Submit </button>
+    	<form name="frmForgot" id="frmForgot" method="post" action="processForgotPass.php">
+    		<h2> Forgot Password </h2> <br/>
+    		<?php if(!empty($success_message)) { ?>
+				<div class="success_message"><?php echo $success_message; ?></div>
+			<?php } ?>
+
+			<div id="validation-message">
+				<?php if(!empty($error_message)) { ?>
+				<?php echo $error_message; ?>
+				<?php } ?>
+			</div>
+			
+    		<div class="field-group">
+    			<div> <label for="username"> Username </label> </div>
+    			<div> <input type="text" name="username" id="username" class="input-field" placeholder="Enter Username Here" required> </div>
+    		</div> 
+    		<div class="field-group">
+				<div><label for="email">Email</label></div>
+				<div><input type="text" name="email" id="email" class="input-field" placeholder="Enter Email Address Here" required></div>
+			</div>
+    		<div class="field-group">
+				<div><input type="submit" name="forgot-password" id="forgot-password" value="Submit" class="form-submit-button"></div>
+			</div>	
     	</form>
+    	<?php
+if(isset($_SESSION['msg']))
+{
+echo $_SESSION['msg'];
+unset($_SESSION['msg']);
+}
+?>
+    	
     </body>
 </html>

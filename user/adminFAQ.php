@@ -3,34 +3,50 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=Cp1252">
 <title> Admin FAQ </title>
+    <link href="min/plugin-min.css" type="text/css" rel="stylesheet">
+    <link href="min/custom-min.css" type="text/css" rel="stylesheet" >
+      <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+  <script>
+	 $(document).ready(function(e){
+		$(".dropdown-button").dropdown();
+	 });
+  </script>
+  
 </head>
 <body>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#"> LEAdS v.2</a>
-    </div>
-    <ul class="nav navbar-nav">
-      <li><a href="admin.php">Home</a></li>
-      <li> <a href="logs.php"> Logs </a> </li>
-      <li><a href="adminProfile.php">Profile</a></li>
-      <li><a href="notification.php">Notification</a></li>
-      <li class="dropdown"> <a class = "dropdown-toggle" data-toggle = "dropdown" href="#"> Settings <span class = "caret"> </span> </a> 
-      	 <ul class="dropdown-menu">
-      	 	<li> <a href="adminPassword.php"> Change Password </a> </li>
-      	 	<li> <a href="adminFAQ.php"> FAQ </a> </li>
-      	 </ul>
-      </li>
-      
-    </ul>
-    <ul class="nav navbar-nav navbar-right">
-      <li> <a href="logout.php"><span class="glyphicon glyphicon-log-out"> </span> Sign Out</a> </li>
-    </ul>
-  </div>
-</nav>
+<div class="navbar-fixed">
+<ul id="dropdown1" class="dropdown-content">
+  <li><a href="adminPassword.php">Change Password</a></li>
+    <li class="divider"></li>
+  <li><a href="adminFAQ.php">FAQ</a></li>
+</ul>
+    <nav id="nav_f" class="default_color" role="navigation">
+        <div class="container">
+            <div class="nav-wrapper">
+            <a href="admin.php" id="logo-container" class="brand-logo"><img src="img/logo_white.png" style="width:140px" /> </a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="admin.php">Home</a></li>
+                    <li><a href="logs.php"> Logs</a></li>
+                    <li><a href="adminProfile.php">Profile</a></li>
+                    <li><a href="notification.php">Notification</a></li>
+                    <li class="active"><a class="dropdown-button" href="#!" data-activates="dropdown1">Settings<i class="material-icons right">arrow_drop_down</i></a></li>
+                    <li><a href="logout.php"> Sign Out</a> </li>
+                </ul>
+                <ul id="nav-mobile" class="side-nav">
+                    <li><a href="#intro">About</a></li>
+                    <li><a href="#order">Order</a></li>
+                    <li><a href="#team">Team</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+            </div>
+        </div>
+    </nav>
+</div> 
+
 <div class = "container">
  		<center> <h2> Frequently Asked Questions </h2> </center>
     	<h4> What is Landslide? </h4> 
@@ -70,4 +86,22 @@
   		<h4> Is the mobile application available only to Android? </h4>
   		<p> Yes, be ready for updates soon! </p> <br>
 </body>
+<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIza5y8hEnZMKb3lpoj_CvYmnvInhPc1MN0PwGU",
+    authDomain: "leadsmobileapp.firebaseapp.com",
+    databaseURL: "https://leadsmobileapp.firebaseio.com",
+    projectId: "leadsmobileapp",
+    storageBucket: "leadsmobileapp.appspot.com",
+    messagingSenderId: "685935317906"
+  };
+  firebase.initializeApp(config);
+</script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+ 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
 </html>

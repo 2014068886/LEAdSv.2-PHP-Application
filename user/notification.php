@@ -2,178 +2,87 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=Cp1252">
-<title>Insert title here</title>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script type="text/javascript">
-$(document).ready(function(){
-	 
-	// updating the view with notifications using ajax
-	 
-	function load_unseen_notification(view = '')
-	 
-	{
-	 
-	 $.ajax({
-	 
-	  url:"http://localhost:88/LEAdS%20v.2/user/fetch.php",
-	  method:"POST",
-	  data:{view:view},
-	  dataType:"json",
-	  success:function(data)
-	 
-	  {
-	 
-	   $('.dropdown-menu').html(data.notification);
-	 
-	   if(data.unseen_notification > 0)
-	   {
-	    $('.count').html(data.unseen_notification);
-	   }
-	 
-	  }
-	 
+<title>Notification </title>
+
+	<link href="min/plugin-min.css" type="text/css" rel="stylesheet">
+    <link href="min/custom-min.css" type="text/css" rel="stylesheet" >
+  
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
+      <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+  <script>
+	 $(document).ready(function(e){
+		$(".dropdown-button").dropdown();
 	 });
-	 
-	}
-	 
-	load_unseen_notification();
-	 
-	// submit form and get new records
-	 
-	$('#comment_form').on('submit', function(event){
-	 event.preventDefault();
-	 
-	 if($('#subject').val() != '' && $('#comment').val() != '')
-	 
-	 {
-	 
-	  var form_data = $(this).serialize();
-	 
-	  $.ajax({
-	 
-	   url:"http://localhost:88/LEAdS%20v.2/user/insert.php",
-	   method:"POST",
-	   data:form_data,
-	   success:function(data)
-	 
-	   {
-	 
-	    $('#comment_form')[0].reset();
-	    load_unseen_notification();
-	 
-	   }
-	 
-	  });
-	 
-	 }
-	 
-	 else
-	 
-	 {
-	  alert("Both Fields are Required");
-	 }
-	 
-	});
-	 
-	// load new notifications
-	 
-	$(document).on('click', '.dropdown-toggle', function(){
-	 
-	 $('.count').html('');
-	 
-	 load_unseen_notification('yes');
-	 
-	});
-	 
-	setInterval(function(){
-	 
-	 load_unseen_notification();;
-	 
-	}, 5000);
-	 
-	});
-</script> 
+  </script>
+
 </head>
 <body> 
-<nav class="navbar navbar-inverse">
-   <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#"> LEAdS v.2</a>
-    </div>
-    <ul class="nav navbar-nav">
-      <li> <a href="admin.php">Home</a></li>
-      <li> <a href="logs.php"> Logs </a> </li>
-      <li> <a href="adminProfile.php">Profile</a></li>
-      <li class="active"> <a href="notification.php">Notification</a></li>
-      <li class="dropdown"> <a class = "dropdown-toggle" data-toggle = "dropdown" href="#"> Settings <span class = "caret"> </span> </a> 
-      	 <ul class="dropdown-menu">
-      	 	<li> <a href="adminPassword.php"> Change Password </a> </li>
-      	 	<li> <a href="adminFAQ.php"> FAQ </a> </li>
-      	 </ul>
-      </li>
-      
-    </ul>
-    <ul class="nav navbar-nav navbar-right">
-      <li class="dropdown">
- 			<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="label label-pill label-danger count" style="border-radius:10px;"></span> <span class="glyphicon glyphicon-bell" style="font-size:18px;"></span></a>
-      		<ul class="dropdown-menu"></ul>
-      </li>
-      <li> <a href="logout.php"><span class="glyphicon glyphicon-log-out"> </span> Sign Out</a> </li>
-    </ul>
-  </div>
-</nav>
-<br/>
-<div class="container">
-  <form method="post" action="insert.php">
-   <div class="form-group">
-    <label>Enter Subject</label>
-    <input type="text" name="subject" id="subject" class="form-control">
-   </div>
- 
-   <div class="form-group">
-    <label>Enter Comment</label>
-    <textarea name="comment" id="comment" class="form-control" rows="4"></textarea>
-   </div>
- 
-   <div class="form-group">
-    <input type="submit" name="post" id="post" class="btn btn-info" value="SUBMIT" />
-    <input type="reset" class="btn btn-info" value="RESET"/>
-   </div>
-  </form>
-  
-  <?php 
-  include 'config.php';
-   
-  $result = $link->query("SELECT * FROM comments");
-  $row = $result->fetch_assoc();
-  $comment_subject = $row['comment_subject'];
-  $comment_text = $row['comment_text'];
-  echo
-  "<div class = 'col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad'>
-        <div class = 'panel panel-info'>
-            <div class = 'panel-heading'>
-                <h3 class = 'panel-title' align = 'center'> <font face = 'century' color='black'> Notifications </font> </h3>
+
+<div class="navbar-fixed">
+<ul id="dropdown1" class="dropdown-content">
+  <li><a href="adminPassword.php">Change Password</a></li>
+    <li class="divider"></li>
+  <li><a href="adminFAQ.php">FAQ</a></li>
+</ul>
+    <nav id="nav_f" class="default_color" role="navigation">
+        <div class="container">
+            <div class="nav-wrapper">
+            <a href="admin.php" id="logo-container" class="brand-logo"><img src="img/logo_white.png" style="width:140px" /> </a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="admin.php">Home</a></li>
+                    <li><a href="logs.php"> Logs</a></li>
+                    <li><a href="adminProfile.php">Profile</a></li>
+                    <li class="active"><a href="notification.php">Notification</a></li>
+                    <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Settings<i class="material-icons right">arrow_drop_down</i></a></li>
+                    <li><a href="logout.php"> Sign Out</a> </li>
+                </ul>
+                <ul id="nav-mobile" class="side-nav">
+                    <li><a href="#intro">About</a></li>
+                    <li><a href="#order">Order</a></li>
+                    <li><a href="#team">Team</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
             </div>
-            <div class = 'panel-body'>
-    		<div class='row'>
-    		<div class = 'col-md-12 col-lg-12'>
-    			<table class = 'table table-user-information'>
-    				<tr>
-    				<th> Subject </th>
-    				<td>" .$comment_subject. " </td>
-    				</tr>
-    				<tr>
-    				<th> Comment </th>
-    				<td>" .$comment_text." </td>
-      				</tr>
-				</table>
-			</div>
-		</div>";
+        </div>
+    </nav>
+</div> 
+<br/>
+
+<div class="container">
+<?php 
+  include 'config.php';
   
+  $triggerNotif = $link->query("SELECT * FROM logs WHERE date IN (SELECT MAX(date) FROM logs WHERE 
+  		level='2' OR level='3') ORDER BY date DESC");
+  $ro = $triggerNotif->fetch_assoc();
+
+  	$res = $ro['level'];
+  	if($res=='2'){
+  		echo "<center> <h2> Get ready for an evacuation and wait for further announcements! </h2> </center>";
+  		$auditNotif = $link->query("INSERT INTO notifications (description, level, date) values ('Medium',2,CURRENT_TIMESTAMP())");
+  		$output = shell_exec('echo "TEXT MESSAGE" | gammu-smsd-inject TEXT <09987903914> -len 400');
+  		
+  	} else if ($res=='3'){
+  		echo "<center> <h2> Immediate evacuation is required! </h2> </center>";
+  		$auditNotif = $link->query("INSERT INTO notifications (description, level, date) values ('High',3,CURRENT_TIMESTAMP())");
+  		$output = shell_exec('echo "TEXT MESSAGE" | gammu-smsd-inject TEXT <09987903914> -len 400');
+  		
+  	} else {
   
-  ?>
+  	}
+?>
+<br/><br/>
+<div>
+	<center><a href="auditLogs.php" class="btn btn-success"> View Notification Logs </a> </center>
+</div>
+
 </div>
 </body>
+      <script type="text/javascript" src="js/materialize.min.js"></script>
 </html>

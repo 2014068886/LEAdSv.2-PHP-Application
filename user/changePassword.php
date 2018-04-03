@@ -74,12 +74,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       <a class="navbar-brand" href="#"> LEAdS v.2</a>
     </div>
     <ul class="nav navbar-nav">
-      <li ><a href="index.php">Home</a></li>
+      <li><a href="index.php">Home</a></li>
       <li><a href="profile.php">Profile</a></li>
+      <li><a href="userNotification.php">Notification</a></li>
       <li class="dropdown"> <a class = "dropdown-toggle" data-toggle = "dropdown" href="#"> <b> Settings </b> <span class = "caret"> </span> </a> 
       	 <ul class="dropdown-menu">
       	 	<li> <a href="changePassword.php"> Change Password </a> </li>
-      	 
+      	 	<li> <a href="faq.php"> FAQ </a> </li>
       	 </ul>
       </li>
       

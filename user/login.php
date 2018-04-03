@@ -1,37 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Login</title>
-
-    <!-- Bootstrap -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
-    
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-     <style>
-		body {
-    		background-image: url('landslide-1.jpg');
-    		background-size: 1380px 650px;
-    		color: black;
-    		font-family: verdana;
-    	}
-</style>
-  </head>
-  <body>
-  <p>&nbsp;</p><br><br>
-  <div class="container" style="width: 600px">
-   
-<?php
-/*$username=$_POST['username'];
-$password=md5($_POST['password']);
-$login=$_POST['login']; */
+<html>
+	<head>
+		<title>LEAdS</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<link rel="stylesheet" href="css/bootstrap.css">
+		<link rel="stylesheet" href="style.css">
+	</head>
+	<body>
+	<?php
 if(isset($_POST['username']) && isset($_POST['password'])){
   $mysqli = new mysqli("127.0.0.1", "root", "12345", "leads");
   if ($mysqli->connect_errno) {
@@ -56,7 +33,7 @@ if(isset($_POST['username']) && isset($_POST['password'])){
     } else{
 ?>
 <div class="alert alert-warning alert-dismissible" role="alert">
-  <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+  <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">x</span><span class="sr-only">Close</span></button>
   <strong>No User Type Found!</strong>
 </div>
 <?php
@@ -64,41 +41,55 @@ if(isset($_POST['username']) && isset($_POST['password'])){
   } else{
 ?>
 <div class="alert alert-danger alert-dismissible" role="alert">
-  <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+  <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">x</span><span class="sr-only">Close</span></button>
   <strong>Warning!</strong> This username or password not same with database.
 </div>
 <?php
   }
 }
 ?>
-   
-    <div class="panel panel-default">
-      <div class="panel-body">
-     	<div class="col-md-12">
-    <h2 align="center">Login</h2>
-    <form role="form" method="post">
-      <div class="form-group">
- <label for="username">Username</label>
- <input type="text" class="form-control" id="username" name="username">
-      </div>
-      <div class="form-group">
- <label for="password">Password</label>
- <input type="password" class="form-control" id="password" name="password">
-      </div>
-      <button type="submit" name="login" class="btn btn-primary">Login</button><br>
-      <center> <a href="forgotPass.php"> Forgot Password? </a> </center>
-<br> <p>Don't have an account? <a href="register.php">Sign up now</a></p>
-<p>Click <a href="http://localhost:88/LEAdS v.2/superadmin/index.php"> here </a> to Login as Super Admin. </p>
-    </form>
-       </div>
-      </div>
-     </div>
-     
-  </div>
+		<div class="container-fluid">
+			<div class="row is-flex">
+				<div class="col-sm-6 align-self-center text-center">
+					<img src="LEAdS Logo_green.png" class="logo">
+				</div>
+				<div class="col-sm-6 align-self-center text-center">
+					<div class="container-white">
+						<h2>WELCOME!</h2><br>
+						<div class="form-group">
+						  <form method="post" role="form">
+  							<input type="text" class="form-control" id="username" name="username" style="text-align: center;" placeholder="Username" required="required"> <br>
+						  	<input type="password" class="form-control" id="password" name="password" style="text-align: center;" placeholder="Password" required="required"> <br><br>
+						
+							<a href="forgotPass.php">Forgot password?</a><br> <br>
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+							<input type="submit" class="btn btn-info" value="LOGIN" name="login"> <br><br>
+						  </form>
+							<i><a href="register.php">REGISTER here!</a><br></i>
+							
+							<p>Click <a href="http://localhost:88/LEAdS v.2/superadmin/index.php"> here </a> to Login as Super Admin. </p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+		</div>
 </body>
-</html> 
+<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyBhEnZMKb3lpoj_CvYmnvInhPc1MN0PwGU",
+    authDomain: "leadsmobileapp.firebaseapp.com",
+    databaseURL: "https://leadsmobileapp.firebaseio.com",
+    projectId: "leadsmobileapp",
+    storageBucket: "leadsmobileapp.appspot.com",
+    messagingSenderId: "685935317906"
+  };
+  firebase.initializeApp(config);
+</script>
+
+	<script src="js/jquery-2.1.1.min.js"></script>
+	<script src="js/bootstrap.js"></script>
+</html>

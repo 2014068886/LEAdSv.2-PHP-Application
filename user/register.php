@@ -87,70 +87,49 @@ if(isset($_POST['add'])) {
 }
 ?>
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Sign Up</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
-    <style type="text/css">
-        body{ font: 14px sans-serif; }
-        .wrapper{ width: 350px; padding: 20px; }
-    </style>
-</head>
-<body>
-<div class="container" style="width:500px">
-<div class="panel panel-default">
-      <div class="panel-body">
-     	<div class="col-md-12">
-   <div class="wrapper"> 
-        <h2>Sign Up</h2>
-        <p>Please fill this form to create an account.</p>
-        <form action="<?php $_PHP_SELF ?>" method='post'>
-            <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
-                <label>Username:<sup style="color: red">*</sup></label>
-                <input type="text" name="username" class="form-control" value="<?php echo $username; ?>">
-                <span class="help-block"><?php echo $username_err; ?></span>
-            </div>    
-            <div class="form-group <?php echo (!empty($firstName_err)) ? 'has-error' : ''; ?>">
-            	<label>First Name: <sup style="color: red">*</sup> </label>
-            	<input type="text" name="firstName" class="form-control" value="<?php echo $firstName; ?>">
-            	<span class="help-block"><?php echo $firstName_err; ?></span>
-            </div>
-            <div class="form-group <?php echo (!empty($firstName_err)) ? 'has-error' : ''; ?>">
-            	<label>Last Name: <sup style="color: red">*</sup> </label>
-            	<input type="text" name="lastName" class="form-control" value="<?php echo $lastName; ?>">
-            	<span class="help-block"><?php echo $firstName_err; ?></span>
-            </div>
-            <div class="form-group <?php echo (!empty($mobile_num_err)) ? 'has-error' : ''; ?>">
-            	<label>Mobile Number: <sup style="color: red">*</sup> </label>
-            	<input type="text" name="mobileNum" class="form-control" value="<?php echo $mobileNum; ?>">
-            	<span class="help-block"><?php echo $mobile_num_err; ?></span>
-            </div>
-            <div class="form-group <?php echo (!empty($email_err)) ? 'has-error' : ''; ?>">
-            	<label>Email Address: <sup style="color: red">*</sup></label>
-            	<input type="email" name="email" class="form-control" value="<?php echo $email; ?>"> 
-            	<span class="help-block"><?php echo $email_err; ?></span>
-            </div>
-            <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
-                <label>Password:<sup style="color: red">*</sup></label>
-                <input type="password" name="password" class="form-control" value="<?php echo $password; ?>">
-                <span class="help-block"><?php echo $password_err; ?></span>
-            </div>
-            <div class="form-group <?php echo (!empty($confirm_password_err)) ? 'has-error' : ''; ?>">
-                <label>Confirm Password: <sup style="color: red">*</sup></label>
-                <input type="password" name="confirm_password" class="form-control" value="<?php echo $confirm_password; ?>">
-                <span class="help-block"><?php echo $confirm_password_err; ?></span>         
-            </div>
-            <div class="form-group">
-                <input type="SUBMIT" name = "add" id = "add" class="btn btn-primary" value="Submit">
-                <input type="reset" class="btn btn-default" value="Reset">
-            </div>
-            <p>Already have an account? <a href="index.php">Login here</a>.</p>
-        </form>
-    </div>    
-</div>
-</div>
-</div>
-</div>
-</body>
+<html>
+
+	<head>
+		<title>LEAdS</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<link rel="stylesheet" href="css/bootstrap.css">
+		<link rel="stylesheet" href="style.css">
+	</head>
+	<body>
+		<div class="container-fluid">
+			<div class="row is-flex">
+				<div class="col-sm-6 align-self-center text-center">
+					<img src="LEAdS Logo_green.png" class="logo">
+				</div>
+				<div class="col-sm-6 align-self-center text-center">
+					<div class="container-white">
+						<h2>REGISTER ACCOUNT</h2><br>
+
+						<div class="form-group">
+						 <form action="<?php $_PHP_SELF ?>" method='post'>
+  							<input type="text" class="form-control" id="name" style="margin-bottom: 5px;" placeholder="Last Name, First Name M.I.">
+  							<input type="text" class="form-control" id="email" style="margin-bottom: 5px;" placeholder="E-mail">
+  							<input type="text" class="form-control" id="mobilenum" style="margin-bottom: 5px;" placeholder="Mobile Number">
+  							<input type="text" class="form-control" id="username" style="margin-bottom: 5px;" placeholder="Username">
+						  	<input type="password" class="form-control" id="password1" style="margin-bottom: 5px;" placeholder="Password">
+						  	<input type="password" class="form-control" id="password2" style="margin-bottom: 5px;" placeholder="Confirm Password"> <br>
+
+							<input type="submit" class="btn btn-info" value="REGISTER"> <br><br>
+						</form>
+							<i><a href=""><< BACK</a></i>
+						</div>
+
+
+					</div>
+				</div>
+			</div>
+
+
+		</div>
+
+		<script src="bootstrap.js"></script>
+		<script src="jquery-1.9.1.js" "></script>
+	</body>
+
 </html>

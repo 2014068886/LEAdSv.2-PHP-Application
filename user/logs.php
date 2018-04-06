@@ -16,10 +16,8 @@ if (!isset($_SESSION['mysesi']) && !isset($_SESSION['mytype'])=='Admin')
     <link href="min/plugin-min.css" type="text/css" rel="stylesheet">
     <link href="min/custom-min.css" type="text/css" rel="stylesheet" >
    
-  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/dataTables.material.min.css">
   <!--  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-lite/1.1.0/material.min.css"> -->
   
-  <link rel="stylesheet" href="css/bootstrap.css">
   <!--Import Google Icon Font-->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <!--Import materialize.css-->
@@ -27,6 +25,8 @@ if (!isset($_SESSION['mysesi']) && !isset($_SESSION['mytype'])=='Admin')
   
   <link rel="stylesheet" href="css/preloader.css" type="text/css"/>
   <script src="js/preloader.js"></script>
+	
+  <link type="text/css" rel="stylesheet" src="https://cdn.datatables.net/1.10.16/css/dataTables.material.min.css"/>
 	
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
   <script src="js/bootstrap.min.js"></script>
@@ -127,15 +127,36 @@ if (!isset($_SESSION['mysesi']) && !isset($_SESSION['mytype'])=='Admin')
     </table>
     
     <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Generate Daily Report</button>
-	<button type="button" class="btn btn-info" data-toggle="modal" data-target="#weekly">Generate Weekly Report</button>
+	<button type="button" class="btn btn-info" data-toggle="modal" data-target="weekly">Generate Weekly Report</button>
     <form class="form-horizontal" action="generateCSV.php" method='post' enctype="multipart/form-data">
            <input type="submit" name="exportDB" class="btn btn-success" value="Export Data to CSV"/>
   
     </form> 	
     
-     <!-- Modal Trigger -->
-    <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>
-
+ 
+    
+    <!-- Modal Trigger -->
+  <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>
+    
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <h4>Modal Header</h4>
+      <p>A bunch of text</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+    </div>
+  </div>
+  
+    <script>
+          $(document).ready(function(){
+    	    $('.modal-trigger').leanModal();
+    	  });
+    	          
+    </script>    
+   
+    
     <!-- Modal Structure -->
     <div id="modal1" class="modal">
       <div class="modal-content">
@@ -150,8 +171,9 @@ if (!isset($_SESSION['mysesi']) && !isset($_SESSION['mytype'])=='Admin')
       </div>
     </div>
 
+   
     
-  	<div class="modal fade" id="myModal" role="dialog">
+  	<div class="modal" id="myModal" role="dialog">
     	<div class="modal-dialog">
     
       		<!-- Modal content-->
@@ -167,8 +189,7 @@ if (!isset($_SESSION['mysesi']) && !isset($_SESSION['mytype'])=='Admin')
     	</div>
   	</div>
     
-    <div class="modal fade" id="weekly" role="dialog">
-    	<div class="modal-dialog">
+    <div class="modal" id="weekly">
     
       		<!-- Modal content-->
       		<div class="modal-content">
@@ -183,7 +204,7 @@ if (!isset($_SESSION['mysesi']) && !isset($_SESSION['mytype'])=='Admin')
         		</form>
         		</div>
       		</div>
-    	</div>
+    	
   	</div>
     	
  
@@ -193,10 +214,7 @@ if (!isset($_SESSION['mysesi']) && !isset($_SESSION['mytype'])=='Admin')
 	</div>
 	</main>
 	 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
-	 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
   </body>
- 
-
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
   <script src="https://cdn.datatables.net/1.10.16/js/dataTables.material.min.js"></script>

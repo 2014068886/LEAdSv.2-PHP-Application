@@ -25,16 +25,23 @@ $username = $_SESSION['mysesi'];
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <!--Import materialize.css-->
       <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
-  <script>
-	 $(document).ready(function(e){
-		$(".dropdown-button").dropdown();
-	 });
-  </script>
 </head>
 <style>
 .material-icons.md-25 { font-size: 25px; }
 </style>
 <body>
+<div id="loader-wrapper">
+    <div id="loader"></div>
+ 
+    <div class="loader-section section-left"></div>
+    <div class="loader-section section-right"></div>
+ 
+</div>
+<script>
+  	$document.ready(function(e){
+		$(".dropdown-button").dropdown();
+	 });
+</script>
 <div class="navbar-fixed">
 <ul id="dropdown1" class="dropdown-content">
   <li><a href="adminPassword.php">Change Password</a></li>
@@ -58,7 +65,6 @@ $username = $_SESSION['mysesi'];
                     <li><a href="logs.php"> Logs</a></li>
                     <li class="active"><a href="adminProfile.php">Profile</a></li>
                     <li><a href="notification.php">Notification</a></li>
-                    <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Settings<i class="material-icons right">arrow_drop_down</i></a></li>
                     <li><a href="logout.php"> Sign Out</a> </li>
                 </ul>
             <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>

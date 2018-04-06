@@ -7,30 +7,27 @@ if (!isset($_SESSION['mysesi']) && !isset($_SESSION['mytype'])=='Admin')
 }
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Login Session</title>
-   
-	<link href="min/plugin-min.css" type="text/css" rel="stylesheet">
+<link href="min/plugin-min.css" type="text/css" rel="stylesheet">
     <link href="min/custom-min.css" type="text/css" rel="stylesheet" >
   
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
       <!--Import Google Icon Font-->
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <!--Import materialize.css-->
       <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
 
-	<link rel="stylesheet" href="css/preloader.css" type="text/css"/>
-	
+  <link rel="stylesheet" href="css/preloader.css" type="text/css"/>
+  <script src="js/preloader.js"></script>
 </head>
 <body id="top">
-  <script>
-	 $(document).ready(function(e){
-		$(".dropdown-button").dropdown();
-	 });
-  </script>
 <div class="preloader-background">
 	<div class="preloader-wrapper big active">
 		<div class="spinner-layer spinner-blue-only">
@@ -54,13 +51,17 @@ if (!isset($_SESSION['mysesi']) && !isset($_SESSION['mytype'])=='Admin')
     <div class="loader-section section-right"></div>
  
 </div>
-
+<script>
+$(document).ready(function(e){
+	$(".dropdown-button").dropdown();
+});
+</script>
+<div class="navbar-fixed">
 <ul id="dropdown1" class="dropdown-content">
   <li><a href="adminPassword.php">Change Password</a></li>
     <li class="divider"></li>
   <li><a href="adminFAQ.php">FAQ</a></li>
 </ul>
-<div class="navbar-fixed">
     <nav id="nav_f" class="default_color" role="navigation">
         <div class="container">
             <div class="nav-wrapper">
@@ -78,7 +79,6 @@ if (!isset($_SESSION['mysesi']) && !isset($_SESSION['mytype'])=='Admin')
                  	<li><a href="logs.php"> Logs</a></li>
                     <li><a href="adminProfile.php">Profile</a></li>
                     <li><a href="notification.php">Notification</a></li>
-                    <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Settings<i class="material-icons right">arrow_drop_down</i></a></li>
                     <li><a href="logout.php"> Sign Out</a> </li>
                 </ul>
             <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
@@ -169,7 +169,14 @@ if (!isset($_SESSION['mysesi']) && !isset($_SESSION['mytype'])=='Admin')
 			</tr>
 		</tbody>
 		</table> <p>&nbsp;</p> <p>&nbsp;</p> 
-		<a href="http://admin:admin@192.168.2.10/">IP CAMERA</a> </div> 
+		<a href="http://jessica:jess1234@192.168.1.108/">IP CAMERA</a> </div> 
+		
+		<?php 
+			include 'config.php';
+			
+			
+		
+		?>
 </div>
 <div class="parallax-container">
     <div class="parallax"><img src="LEAdSBackgroundv2.png"></div>
@@ -180,7 +187,7 @@ if (!isset($_SESSION['mysesi']) && !isset($_SESSION['mytype'])=='Admin')
               <div class="col l6 s12">
                	<h5 class="white-text">Chat with us!</h5>
                 <p class="grey-text text-lighten-4">Your feedbacks are always welcome and we are always trying to find new ways to improve our services.</p>
-                 <form  method="POST" class="col s12" action="contact.php">
+                 <form method="post" class="col s12" action="contact.php">
                     <div class="row">
                         <div class="input-field col s12">
                             <i class="mdi-communication-email prefix white-text"></i>
@@ -193,9 +200,9 @@ if (!isset($_SESSION['mysesi']) && !isset($_SESSION['mytype'])=='Admin')
                             <label for="icon_prefix2" class="white-text">Message</label>
                         </div>
                         <div class="col offset-s7 s5">
-                            <button class="btn waves-effect waves-light red darken-1" type="submit">Submit
+                            <button class="btn waves-effect waves-light red darken-1" name="exportDB" type="submit"> SUBMIT
                                 <i class="mdi-content-send right white-text"></i>
-                            </button>
+                           </button>
                         </div>
                     </div>
                 </form>
@@ -218,38 +225,9 @@ if (!isset($_SESSION['mysesi']) && !isset($_SESSION['mytype'])=='Admin')
             </div>
           </div>
         </footer>
+    
 </body>
-
-<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
-<script>
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIza5y8hEnZMKb3lpoj_CvYmnvInhPc1MN0PwGU",
-    authDomain: "leadsmobileapp.firebaseapp.com",
-    databaseURL: "https://leadsmobileapp.firebaseio.com",
-    projectId: "leadsmobileapp",
-    storageBucket: "leadsmobileapp.appspot.com",
-    messagingSenderId: "685935317906"
-  };
-  firebase.initializeApp(config);
-</script>
-<script>
-var firebase = require("firebase");
-//Initialize Firebase
-//TODO: Replace with your project's customized code snippet
-var config = {
-apiKey: "AIza5y8hEnZMKb3lpoj_CvYmnvInhPc1MN0PwGU",
-authDomain: "leadsmobileapp.firebaseapp.com",
-databaseURL: "https://leadsmobileapp.firebaseio.com",
-storageBucket: "leadsmobileapp.appspot.com",
-};
-firebase.initializeApp(config);
-</script>
-
-<script src="js/preloader.js"></script>
-<script type="text/javascript" src="js/materialize.min.js"></script>
+  <script type="text/javascript" src="js/materialize.min.js"></script>
 <script src="min/plugin-min.js"></script>
 <script src="min/custom-min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </html>  

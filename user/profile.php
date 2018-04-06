@@ -23,28 +23,21 @@
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <!--Import materialize.css-->
       <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
-  <script>
-	 $(document).ready(function(e){
+  
+</head>
+<body>
+
+<script>
+  	$document.ready(function(e){
 		$(".dropdown-button").dropdown();
 	 });
   </script>
-</head>
-<body>
-<div id="loader-wrapper">
-    <div id="loader"></div>
- 
-    <div class="loader-section section-left"></div>
-    <div class="loader-section section-right"></div>
- 
-</div>
-
-
-<ul id="dropdown1" class="dropdown-content">
-  <li><a href="changePassword.php">Change Password</a></li>
-    <li class="divider"></li>
-  <li><a href="faq.php">FAQ</a></li>
-</ul>
 <div class="navbar-fixed">
+    <ul id="dropdown1" class="dropdown-content">
+  		<li><a href="changePassword.php">Change Password</a></li>
+    	<li class="divider"></li>
+   		<li><a href="faq.php">FAQ</a></li>
+	</ul>
     <nav id="nav_f" class="default_color" role="navigation">
         <div class="container">
             <div class="nav-wrapper">
@@ -60,7 +53,6 @@
                     <li><a href="index.php">Home</a></li>
                     <li class="active"><a href="profile.php">Profile</a></li>
                     <li><a href="userNotification.php">Notification</a></li>
-                    <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Settings<i class="material-icons right">arrow_drop_down</i></a></li>
                     <li><a href="logout.php"> Sign Out</a> </li>
                 </ul>
             <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
@@ -129,7 +121,6 @@
     					} 
     		?>
 </div>
-   
 </body>
 <script type="text/javascript" src="js/materialize.min.js"></script>
 </html>

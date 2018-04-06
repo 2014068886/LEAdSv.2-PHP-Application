@@ -7,22 +7,15 @@
     <body>
     <?php
 		include 'config.php';
-		
-		$email = $_POST['email'];
-		$feedback = $_POST['message'];
-		
-		if( (!empty($email)) && (!empty($feedback)) )  
-		{
+		if(isset($_POST['exportDB'])){
 			$con = new dbCon();
-			
+			$email = $_POST['email'];
+			$feedback = $_POST['message'];
 			$res = $con->insertFeedback($email, $feedback);
-			
+				
 			header('location: admin.php');
-			
-		} else 
-		{
-			
 		}
+		
 	?>
     </body>
 </html>
